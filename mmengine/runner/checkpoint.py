@@ -5,6 +5,7 @@ import re
 import logging
 import pkgutil
 import os.path as osp
+from codecs import encode
 from importlib import import_module
 from tempfile import TemporaryDirectory
 from typing import Callable, Dict, Optional
@@ -38,6 +39,7 @@ DEFAULT_CACHE_DIR = "~/.cache"
 torch.serialization.add_safe_globals(
     [
         getattr,
+        encode,
         np.dtype,
         Float64DType,
         Int64DType,
